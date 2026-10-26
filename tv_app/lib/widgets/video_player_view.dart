@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 import '../models/channel.dart';
+import 'facebook_player_view.dart';
 
 class VideoPlayerView extends StatefulWidget {
   final Channel channel;
@@ -107,6 +108,12 @@ class _VideoPlayerViewState extends State<VideoPlayerView> {
           _errorMessage = 'No se encontró ID de transmisión activa.';
         });
       }
+    } else if (widget.channel.type == ChannelType.facebook) {
+      if (mounted) {
+        setState(() {
+          _isLoading = false;
+        });
+      }
     } else {
       setState(() {
         _isLoading = false;
@@ -178,6 +185,16 @@ class _VideoPlayerViewState extends State<VideoPlayerView> {
             controller: _ytController!,
             aspectRatio: 16 / 9,
           ),
+        ),
+      );
+    }
+
+    if (widget.channel.type == ChannelType.facebook) {
+      return Center(
+        child: SizedBox(
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height,
+          child: FacebookPlayerView(videoUrl: widget.channel.url),
         ),
       );
     }
