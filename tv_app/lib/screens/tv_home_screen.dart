@@ -105,8 +105,8 @@ class _TvHomeScreenState extends State<TvHomeScreen> {
         });
         if (!_showChannelList) _startOverlayTimer();
         return KeyEventResult.handled;
-      } else if (event.logicalKey == LogicalKeyboardKey.back ||
-          event.logicalKey == LogicalKeyboardKey.escape) {
+      } else if (event.logicalKey == LogicalKeyboardKey.escape ||
+          event.logicalKey == LogicalKeyboardKey.goBack) {
         if (_showChannelList) {
           setState(() {
             _showChannelList = false;

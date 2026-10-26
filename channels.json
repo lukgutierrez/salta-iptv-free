@@ -1,6 +1,6 @@
 {
-  "version": "1.0.0",
-  "updated_at": "2026-10-25T22:15:00Z",
+  "version": "1.0.1",
+  "updated_at": "2026-10-25T22:45:00Z",
   "categories": [
     "Salta",
     "Salta Digital",
@@ -55,7 +55,8 @@
       "name": "Qué Pasa Salta Live",
       "category": "Salta Digital",
       "type": "youtube",
-      "url": "https://www.youtube.com/@QuePasaSaltaPlus/live",
+      "video_id": "m97u-m5zTBM",
+      "url": "https://www.youtube.com/watch?v=m97u-m5zTBM",
       "youtube_channel_id": "UCCK36hidVt22mcdXIO8u3_g",
       "logo": "https://i1.quepasasalta.com.ar/files/image/228/228448/671a8d57769f6.png",
       "is_live": true
@@ -66,7 +67,8 @@
       "name": "Somos TV Rosario de Lerma",
       "category": "Salta Digital",
       "type": "youtube",
-      "url": "https://www.youtube.com/@SomosTvDigital/live",
+      "video_id": "xR3VUvGyXk0",
+      "url": "https://www.youtube.com/watch?v=xR3VUvGyXk0",
       "youtube_channel_id": "SomosTvDigital",
       "logo": "https://i.imgur.com/CudG6sl.png",
       "is_live": true
@@ -77,7 +79,8 @@
       "name": "El Once TV (Telefe Salta)",
       "category": "Salta Digital",
       "type": "youtube",
-      "url": "https://www.youtube.com/@ElOnceTvSalta/live",
+      "video_id": "6v6iCX_2WDA",
+      "url": "https://www.youtube.com/watch?v=6v6iCX_2WDA",
       "youtube_channel_id": "ElOnceTvSalta",
       "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Telefe_Salta_%282018%29.png/960px-Telefe_Salta_%282018%29.png",
       "is_live": true

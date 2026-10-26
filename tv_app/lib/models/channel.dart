@@ -8,6 +8,7 @@ class Channel {
   final ChannelType type;
   final String url;
   final String logo;
+  final String? videoId;
   final String? youtubeChannelId;
   final bool isLive;
 
@@ -19,6 +20,7 @@ class Channel {
     required this.type,
     required this.url,
     required this.logo,
+    this.videoId,
     this.youtubeChannelId,
     this.isLive = true,
   });
@@ -37,6 +39,25 @@ class Channel {
       }
     }
 
+    String? extractVideoId(String? vid, String? url) {
+      if (vid != null && vid.length == 11) return vid;
+      if (url == null) return null;
+      final uri = Uri.tryParse(url);
+      if (uri == null) return null;
+      if (uri.queryParameters.containsKey('v')) {
+        return uri.queryParameters['v'];
+      }
+      final segments = uri.pathSegments;
+      if (segments.contains('live') && segments.length > segments.indexOf('live') + 1) {
+        final id = segments[segments.indexOf('live') + 1];
+        if (id.length == 11) return id;
+      }
+      if (segments.isNotEmpty && segments.last.length == 11) {
+        return segments.last;
+      }
+      return null;
+    }
+
     return Channel(
       id: json['id'] ?? '',
       number: json['number'] ?? 0,
@@ -45,6 +66,7 @@ class Channel {
       type: parseType(json['type']),
       url: json['url'] ?? '',
       logo: json['logo'] ?? '',
+      videoId: extractVideoId(json['video_id'], json['url']),
       youtubeChannelId: json['youtube_channel_id'],
       isLive: json['is_live'] ?? true,
     );

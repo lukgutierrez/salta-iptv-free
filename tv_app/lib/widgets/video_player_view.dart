@@ -72,46 +72,45 @@ class _VideoPlayerViewState extends State<VideoPlayerView> {
         }
       }
     } else if (widget.channel.type == ChannelType.youtube) {
-      try {
-        // Inicializar reproductor de YouTube
-        final yt = YoutubePlayerController(
-          params: const YoutubePlayerParams(
-            showControls: false,
-            mute: false,
-            showFullscreenButton: false,
-            loop: true,
-          ),
-        );
-
-        if (widget.channel.youtubeChannelId != null &&
-            widget.channel.youtubeChannelId!.isNotEmpty) {
-          // Si tiene ID de canal, cargamos el feed en vivo
-          yt.loadVideoByUrl(
-            mediaContentUrl:
-                'https://www.youtube.com/${widget.channel.youtubeChannelId}/live',
+      final videoId = widget.channel.videoId;
+      if (videoId != null && videoId.isNotEmpty) {
+        try {
+          final yt = YoutubePlayerController.fromVideoId(
+            videoId: videoId,
+            autoPlay: true,
+            params: const YoutubePlayerParams(
+              showControls: true,
+              mute: false,
+              showFullscreenButton: true,
+              loop: true,
+              enableCaption: false,
+            ),
           );
-        } else {
-          yt.loadVideoByUrl(mediaContentUrl: widget.channel.url);
-        }
 
-        _ytController = yt;
-        if (mounted) {
-          setState(() {
-            _isLoading = false;
-          });
+          _ytController = yt;
+          if (mounted) {
+            setState(() {
+              _isLoading = false;
+            });
+          }
+        } catch (e) {
+          if (mounted) {
+            setState(() {
+              _isLoading = false;
+              _errorMessage = 'Error al inicializar YouTube.';
+            });
+          }
         }
-      } catch (e) {
-        if (mounted) {
-          setState(() {
-            _isLoading = false;
-            _errorMessage = 'Error al cargar transmisión de YouTube.';
-          });
-        }
+      } else {
+        setState(() {
+          _isLoading = false;
+          _errorMessage = 'No se encontró ID de transmisión activa.';
+        });
       }
     } else {
       setState(() {
         _isLoading = false;
-        _errorMessage = 'Tipo de transmisión no soportado aún.';
+        _errorMessage = 'Tipo de transmisión no soportado.';
       });
     }
   }
@@ -172,9 +171,13 @@ class _VideoPlayerViewState extends State<VideoPlayerView> {
 
     if (widget.channel.type == ChannelType.youtube && _ytController != null) {
       return Center(
-        child: AspectRatio(
-          aspectRatio: 16 / 9,
-          child: YoutubePlayer(controller: _ytController!),
+        child: SizedBox(
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height,
+          child: YoutubePlayer(
+            controller: _ytController!,
+            aspectRatio: 16 / 9,
+          ),
         ),
       );
     }

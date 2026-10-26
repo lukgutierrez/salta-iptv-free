@@ -36,27 +36,40 @@ class ChannelService {
     ),
     const Channel(
       id: 'quepasasalta_live',
-      number: 4,
+      number: 5,
       name: 'Qué Pasa Salta Live',
       category: 'Salta Digital',
       type: ChannelType.youtube,
-      url: 'https://www.youtube.com/@QuePasaSaltaPlus/live',
+      videoId: 'm97u-m5zTBM',
+      url: 'https://www.youtube.com/watch?v=m97u-m5zTBM',
       youtubeChannelId: 'UCCK36hidVt22mcdXIO8u3_g',
       logo: 'https://i1.quepasasalta.com.ar/files/image/228/228448/671a8d57769f6.png',
     ),
     const Channel(
       id: 'somostv_rosariodelerma',
-      number: 5,
+      number: 6,
       name: 'Somos TV Rosario de Lerma',
       category: 'Salta Digital',
       type: ChannelType.youtube,
-      url: 'https://www.youtube.com/@SomosTvDigital/live',
+      videoId: 'xR3VUvGyXk0',
+      url: 'https://www.youtube.com/watch?v=xR3VUvGyXk0',
       youtubeChannelId: 'SomosTvDigital',
       logo: 'https://i.imgur.com/CudG6sl.png',
     ),
     const Channel(
+      id: 'elonce_salta',
+      number: 7,
+      name: 'El Once TV (Telefe Salta)',
+      category: 'Salta Digital',
+      type: ChannelType.youtube,
+      videoId: '6v6iCX_2WDA',
+      url: 'https://www.youtube.com/watch?v=6v6iCX_2WDA',
+      youtubeChannelId: 'ElOnceTvSalta',
+      logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Telefe_Salta_%282018%29.png/960px-Telefe_Salta_%282018%29.png',
+    ),
+    const Channel(
       id: 'tyc_sports',
-      number: 6,
+      number: 8,
       name: 'TyC Sports HD',
       category: 'Deportes',
       type: ChannelType.hls,
@@ -65,7 +78,7 @@ class ChannelService {
     ),
     const Channel(
       id: 'canal26',
-      number: 7,
+      number: 9,
       name: 'Canal 26 HD',
       category: 'Noticias',
       type: ChannelType.hls,
@@ -86,7 +99,7 @@ class ChannelService {
         return channelsJson.map((item) => Channel.fromJson(item)).toList();
       }
     } catch (e) {
-      // Si no hay internet o falla GitHub, retornamos los canales por defecto
+      // Fallback
     }
     return defaultChannels;
   }
