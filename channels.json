@@ -1,9 +1,10 @@
 {
-  "version": "1.0.1",
-  "updated_at": "2026-10-25T22:45:00Z",
+  "version": "1.0.2",
+  "updated_at": "2026-10-25T23:02:00Z",
   "categories": [
     "Salta",
     "Salta Digital",
+    "Rosario de Lerma (FB)",
     "Deportes",
     "Noticias",
     "Nacionales"
@@ -86,8 +87,38 @@
       "is_live": true
     },
     {
-      "id": "tyc_sports",
+      "id": "fb_movileros_rosariodelerma",
       "number": 8,
+      "name": "Movileros Rosario de Lerma",
+      "category": "Rosario de Lerma (FB)",
+      "type": "facebook",
+      "url": "https://www.facebook.com/RosariodeLermaNoticias",
+      "logo": "https://i.imgur.com/CudG6sl.png",
+      "is_live": true
+    },
+    {
+      "id": "fb_nvs_multimedios",
+      "number": 9,
+      "name": "NVS Multimedios (Valle de Lerma)",
+      "category": "Rosario de Lerma (FB)",
+      "type": "facebook",
+      "url": "https://www.facebook.com/profile.php?id=100094524054581",
+      "logo": "https://i.imgur.com/CudG6sl.png",
+      "is_live": true
+    },
+    {
+      "id": "fb_ruben_lerma",
+      "number": 10,
+      "name": "Ruben Lerma En Vivo",
+      "category": "Rosario de Lerma (FB)",
+      "type": "facebook",
+      "url": "https://www.facebook.com/profile.php?id=100083574824023",
+      "logo": "https://i.imgur.com/CudG6sl.png",
+      "is_live": true
+    },
+    {
+      "id": "tyc_sports",
+      "number": 11,
       "name": "TyC Sports HD",
       "category": "Deportes",
       "type": "hls",
@@ -97,7 +128,7 @@
     },
     {
       "id": "canal26",
-      "number": 9,
+      "number": 12,
       "name": "Canal 26 HD",
       "category": "Noticias",
       "type": "hls",
@@ -107,7 +138,7 @@
     },
     {
       "id": "america_tv",
-      "number": 10,
+      "number": 13,
       "name": "América TV HD",
       "category": "Nacionales",
       "type": "hls",
@@ -117,7 +148,7 @@
     },
     {
       "id": "telemax",
-      "number": 11,
+      "number": 14,
       "name": "Telemax HD",
       "category": "Nacionales",
       "type": "hls",
@@ -127,7 +158,7 @@
     },
     {
       "id": "noticias247",
-      "number": 12,
+      "number": 15,
       "name": "24/7 Noticias",
       "category": "Noticias",
       "type": "hls",

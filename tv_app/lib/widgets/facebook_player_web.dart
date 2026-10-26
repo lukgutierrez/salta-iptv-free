@@ -5,8 +5,17 @@ import 'package:web/web.dart' as web;
 Widget buildFacebookPlayer(String videoUrl) {
   final viewType = 'facebook-player-${videoUrl.hashCode}';
   final encodedUrl = Uri.encodeComponent(videoUrl);
-  final embedUrl =
-      'https://www.facebook.com/plugins/video.php?href=$encodedUrl&show_text=false&autoplay=true';
+
+  String embedUrl;
+  if (videoUrl.contains('/videos/') ||
+      videoUrl.contains('/watch') ||
+      videoUrl.contains('/live')) {
+    embedUrl =
+        'https://www.facebook.com/plugins/video.php?href=$encodedUrl&show_text=false&autoplay=true';
+  } else {
+    embedUrl =
+        'https://www.facebook.com/plugins/page.php?href=$encodedUrl&tabs=timeline&width=800&height=600&small_header=true&adapt_container_width=true&hide_cover=false';
+  }
 
   ui_web.platformViewRegistry.registerViewFactory(
     viewType,
