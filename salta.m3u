@@ -1,8 +1,4 @@
-#EXTM3U url-tvg="" x-tvg-url=""
-
-# ========================================================
-# CANALES DE SALTA (ARGENTINA)
-# ========================================================
+#EXTM3U url-tvg="https://iptv-org.github.io/epg/guides/ar.xml" x-tvg-url="https://iptv-org.github.io/epg/guides/ar.xml"
 
 #EXTINF:-1 tvg-id="MultivisionFederal.ar" tvg-name="Multivisión Federal Salta" tvg-logo="https://i.imgur.com/jX0lqy3.png" group-title="Salta",Multivisión Federal Salta
 https://videostream.shockmedia.com.ar:19360/multivisionfederal/multivisionfederal.m3u8
@@ -18,3 +14,4 @@ https://restreamer.el10tv.com/memfs/725003c4-79c2-4565-8311-f429db4f7777.m3u8
 
 #EXTINF:-1 tvg-id="TelefeSalta.ar" tvg-name="Telefe Salta" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Telefe_Salta_%282018%29.png/960px-Telefe_Salta_%282018%29.png" group-title="Salta",Telefe Salta (Canal 11)
 https://canal11saltatv.unpocodeawita.workers.dev/
+

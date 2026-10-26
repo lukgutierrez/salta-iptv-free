@@ -1,99 +1,100 @@
-# 📺 TV Links Pro - Lista IPTV Personal (Salta & Argentina)
+# 📺 TV Links Pro - Sistema Automatizado de IPTV (Salta & Argentina)
 
-Repositorio para gestionar tu propia lista **Extended M3U** de canales de televisión en vivo mediante flujos HLS directos (`.m3u8`).
-
----
-
-## 🚀 ¿Cómo funciona?
-
-1. **Lista M3U:** El archivo [`salta.m3u`](salta.m3u) contiene las directivas `#EXTINF` con nombres, logos, categorías y las URLs directas de transmisión.
-2. **Hospedado en GitHub:** Al estar subido a GitHub (o GitHub Gist), obtenés un enlace directo tipo **Raw**.
-3. **Auto-actualizable:** Cada vez que agregues un canal o actualices un enlace caído en GitHub, todas tus aplicaciones (Televizo, TiviMate, CloudStream, VLC, etc.) descargarán los cambios automáticamente sin necesidad de reconfigurar nada.
+> **Lista IPTV profesional, modular y auto-mantenida.**
+> Cuenta con verificación automática de canales caídos, integración de Guía de Programación (EPG) y compilación automática mediante GitHub Actions.
 
 ---
 
-## 📁 Archivos del Proyecto
+## 📊 Canales y Estado Actual
 
-- [`salta.m3u`](salta.m3u): Archivo principal con la lista de canales.
-
----
-
-## 🔎 ¿Cómo capturar nuevos enlaces (.m3u8)?
-
-Si querés agregar otro canal local o nacional desde su página web oficial:
-
-1. Abrí Google Chrome (o Firefox/Brave/Edge) en tu PC.
-2. Entrá al sitio web del canal donde se reproduce la transmisión en vivo.
-3. Presioná `F12` (o clic derecho -> **Inspeccionar**) para abrir las **DevTools**.
-4. Seleccioná la pestaña **Network** (Red).
-5. En la caja de filtro, escribí `m3u8`.
-6. Dale play al video o recargá la página (`F5`).
-7. Vas a ver aparecer solicitudes con nombres como `master.m3u8`, `playlist.m3u8` o `index.m3u8`.
-8. Hacé clic derecho sobre la petición -> **Copy** -> **Copy link address**.
-9. Pegá ese enlace en [`salta.m3u`](salta.m3u) siguiendo la estructura explicada abajo.
+- **Total canales cargados:** **10 canales** (5 de Salta + 5 Nacionales).
+- **Canales de Salta:**
+  1. Multivisión Federal Salta (`ONLINE`)
+  2. Canal 7 Salta (`ONLINE`)
+  3. Neox TV Salta (`ONLINE`)
+  4. Canal 10 Salta (`OFFLINE / Requiere Token`)
+  5. Telefe Salta Canal 11 (`OFFLINE / Requiere Token`)
+- **Canales Nacionales / Temáticos:**
+  6. TyC Sports HD (`ONLINE`)
+  7. América TV (`ONLINE`)
+  8. 24/7 Canal de Noticias (`ONLINE`)
+  9. Argentinísima Satelital (`ONLINE`)
+  10. VIVE TV Noticias (`ONLINE`)
 
 ---
 
-## 📝 Estructura de un canal en `salta.m3u`
+## 🏗️ Arquitectura Modular y Escalable
 
-```m3u
-#EXTINF:-1 tvg-id="ID_UNICO" tvg-name="NOMBRE_CANAL" tvg-logo="URL_DEL_LOGO" group-title="GRUPO",NOMBRE VISIBLE
-https://url-del-stream.m3u8
+El proyecto está diseñado para crecer sin desordenarse:
+
+```text
+TV LINKS PRO/
+├── .github/
+│   └── workflows/
+│       └── build-and-check.yml   # CI/CD: Chequea streams caídos y compila diario
+├── channels/                     # Fuentes separadas por región o género
+│   ├── salta.m3u                 # Canales de Salta
+│   └── argentina.m3u             # Canales nacionales
+├── scripts/
+│   └── build.py                  # Validador de enlaces y compilador
+├── salta.m3u                     # Lista compilada SOLO Salta
+├── playlist.m3u                  # Lista compilada COMPLETA (Salta + Argentina + EPG)
+└── README.md
 ```
 
-### Parámetros:
-- `tvg-id`: Identificador para guías EPG (opcional).
-- `tvg-name`: Nombre estándar del canal.
-- `tvg-logo`: Enlace directo a una imagen PNG/JPG transparente del logo.
-- `group-title`: Categoría en la que aparecerá (ej: `Salta`, `Nacionales`, `Noticias`, `Deportes`).
-- `NOMBRE VISIBLE`: Texto que se mostrará en la lista del reproductor.
-
 ---
 
-## 🌐 Subir a GitHub y obtener el enlace RAW
+## 🚀 ¿Cómo subir el proyecto a GitHub de forma profesional?
 
-### Paso 1: Subir el repositorio a GitHub
-Si tenés [GitHub CLI](https://cli.github.com/) instalado:
-```bash
-git init
-git add .
-git commit -m "feat: inicializar lista iptv salta"
-gh repo create tv-links-pro --public --source=. --push
+### 1. Iniciar sesión en GitHub (desde la consola)
+Ejecutá en tu terminal:
+```powershell
+gh auth login
 ```
-O desde la web de GitHub:
-1. Creá un nuevo repositorio público llamado `tv-links-pro`.
-2. Subí el archivo `salta.m3u`.
+*(Elegí `GitHub.com` -> `HTTPS` -> `Yes` para autenticarte vía navegador web).*
 
-### Paso 2: Obtener el enlace RAW
-1. Entrá a tu repositorio en GitHub y hacé clic en `salta.m3u`.
-2. Hacé clic en el botón **Raw** (arriba a la derecha del visor de código).
-3. La URL en tu navegador se verá similar a:
-   ```text
-   https://raw.githubusercontent.com/TU_USUARIO/tv-links-pro/main/salta.m3u
-   ```
-4. **¡Ese es el enlace que usarás en todas tus aplicaciones!**
+### 2. Crear y subir el repositorio automáticamente
+Una vez autenticado, ejecutás un solo comando:
+```powershell
+gh repo create tv-links-pro --public --source=. --remote=origin --push
+```
+*Si preferís crearlo desde la web de GitHub, creás el repo con nombre `tv-links-pro` y corrés:*
+```powershell
+git remote add origin https://github.com/TU_USUARIO/tv-links-pro.git
+git branch -M main
+git push -u origin main
+```
 
 ---
 
-## 📱 Configuración en Reproductores
+## 🔗 Tus Enlaces RAW para reproductores
 
-### 1. CloudStream (Android / Android TV / Fire TV)
-1. Instalá el plugin o repositorio compatible con M3U (como **M3UPlaylistPlayer**).
-2. En la configuración del proveedor, pegá tu enlace `Raw` de GitHub.
-3. Tus canales aparecerán organizados por categorías.
+Una vez subido a tu cuenta de GitHub, tus URLs directas serán:
 
-### 2. Televizo (Android / Android TV)
-1. Abrí Televizo -> Menú -> **Playlists**.
-2. Tocá el botón **+** (Nueva lista de reproducción) -> **Nueva lista M3U**.
-3. Nombre de la lista: `Salta TV`.
-4. URL de la lista de reproducción: Pegá tu enlace `Raw`.
-5. Guardá y listo.
+| Lista | Descripción | URL para Televizo / TiviMate / CloudStream |
+|---|---|---|
+| **Lista Maestra (Recomendada)** | Salta + Canales Nacionales + EPG | `https://raw.githubusercontent.com/TU_USUARIO/tv-links-pro/main/playlist.m3u` |
+| **Solo Salta** | Exclusiva de Salta | `https://raw.githubusercontent.com/TU_USUARIO/tv-links-pro/main/salta.m3u` |
 
-### 3. TiviMate (Recomendado para Smart TV Android / Google TV)
-1. Abrí TiviMate -> **Añadir lista de reproducción** -> **Lista M3U**.
-2. Ingresá la URL Raw de GitHub.
-3. Activá la opción de auto-actualización al iniciar.
+---
 
-### 4. VLC Media Player (PC / Móvil)
-- **PC:** `Ctrl + N` (Abrir volcado de red) -> Pegá la URL Raw -> Reproducir.
-- **Móvil:** Pestaña *Más* -> *Flujo* -> Pegá la URL.
+## ⚙️ Automatización (GitHub Actions)
+
+El proyecto incluye un flujo automático en [`.github/workflows/build-and-check.yml`](.github/workflows/build-and-check.yml):
+- Todos los días a las 06:00 UTC (o cada vez que hacés un `git push`), GitHub ejecuta el script.
+- Valida si algún canal se cayó.
+- Re-compila las listas `playlist.m3u` y `salta.m3u`.
+- Si hubo cambios, los guarda automáticamente en el repositorio.
+
+---
+
+## 🛠️ Cómo probar y compilar localmente en tu PC
+
+Podés correr el verificador en cualquier momento desde tu terminal:
+```powershell
+# Solo compilar listas
+python scripts/build.py
+
+# Compilar y verificar si los canales responden ONLINE en vivo
+python scripts/build.py --check
+```
