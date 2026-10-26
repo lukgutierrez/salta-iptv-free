@@ -1,0 +1,136 @@
+{
+  "version": "1.0.0",
+  "updated_at": "2026-10-25T22:15:00Z",
+  "categories": [
+    "Salta",
+    "Salta Digital",
+    "Deportes",
+    "Noticias",
+    "Nacionales"
+  ],
+  "channels": [
+    {
+      "id": "canal10_salta",
+      "number": 1,
+      "name": "Canal 10 Salta",
+      "category": "Salta",
+      "type": "hls",
+      "url": "https://el10tvstream.digitalnoa.com.ar/memfs/accd8bcb-61b0-416b-bf02-0245cb8267f6.m3u8",
+      "logo": "https://i.imgur.com/don0WSG.png",
+      "is_live": true
+    },
+    {
+      "id": "multivision_salta",
+      "number": 2,
+      "name": "Multivisión Federal",
+      "category": "Salta",
+      "type": "hls",
+      "url": "https://videostream.shockmedia.com.ar:19360/multivisionfederal/multivisionfederal.m3u8",
+      "logo": "https://i.imgur.com/jX0lqy3.png",
+      "is_live": true
+    },
+    {
+      "id": "canal7_salta",
+      "number": 3,
+      "name": "Canal 7 Salta (Tito Cruz)",
+      "category": "Salta",
+      "type": "hls",
+      "url": "https://vivo.solumedia.com:19360/cooperativa/cooperativa.m3u8",
+      "logo": "https://i.imgur.com/CudG6sl.png",
+      "is_live": true
+    },
+    {
+      "id": "neox_salta",
+      "number": 4,
+      "name": "Neox TV Salta",
+      "category": "Salta",
+      "type": "hls",
+      "url": "https://tv.streamcasthd.com:3031/live/neoxtvlive.m3u8",
+      "logo": "https://i.imgur.com/eIX71c9.png",
+      "is_live": true
+    },
+    {
+      "id": "quepasasalta_live",
+      "number": 5,
+      "name": "Qué Pasa Salta Live",
+      "category": "Salta Digital",
+      "type": "youtube",
+      "url": "https://www.youtube.com/@QuePasaSaltaPlus/live",
+      "youtube_channel_id": "UCCK36hidVt22mcdXIO8u3_g",
+      "logo": "https://i1.quepasasalta.com.ar/files/image/228/228448/671a8d57769f6.png",
+      "is_live": true
+    },
+    {
+      "id": "somostv_rosariodelerma",
+      "number": 6,
+      "name": "Somos TV Rosario de Lerma",
+      "category": "Salta Digital",
+      "type": "youtube",
+      "url": "https://www.youtube.com/@SomosTvDigital/live",
+      "youtube_channel_id": "SomosTvDigital",
+      "logo": "https://i.imgur.com/CudG6sl.png",
+      "is_live": true
+    },
+    {
+      "id": "elonce_salta",
+      "number": 7,
+      "name": "El Once TV (Telefe Salta)",
+      "category": "Salta Digital",
+      "type": "youtube",
+      "url": "https://www.youtube.com/@ElOnceTvSalta/live",
+      "youtube_channel_id": "ElOnceTvSalta",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Telefe_Salta_%282018%29.png/960px-Telefe_Salta_%282018%29.png",
+      "is_live": true
+    },
+    {
+      "id": "tyc_sports",
+      "number": 8,
+      "name": "TyC Sports HD",
+      "category": "Deportes",
+      "type": "hls",
+      "url": "https://amg26268-amg26268c14-freelivesports-emea-10267.playouts.now.amagi.tv/ts-us-e2-n2/playlist/amg26268-sportsstudio-tycsports-freelivesportsemea/playlist.m3u8",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/TyC_Sports_logo.svg/960px-TyC_Sports_logo.svg.png",
+      "is_live": true
+    },
+    {
+      "id": "canal26",
+      "number": 9,
+      "name": "Canal 26 HD",
+      "category": "Noticias",
+      "type": "hls",
+      "url": "https://stream-gtlc.telecentro.net.ar/hls/canal26hls/main.m3u8",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Canal_26_logo_%282023%29.png/800px-Canal_26_logo_%282023%29.png",
+      "is_live": true
+    },
+    {
+      "id": "america_tv",
+      "number": 10,
+      "name": "América TV HD",
+      "category": "Nacionales",
+      "type": "hls",
+      "url": "https://prepublish.f.qaotic.net/a07/americahls-100056/playlist_720p.m3u8",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Am%C3%A9rica_TV_%28Nuevo_logo_Junio_2020%29.png/500px-Am%C3%A9rica_TV_%28Nuevo_logo_Junio_2020%29.png",
+      "is_live": true
+    },
+    {
+      "id": "telemax",
+      "number": 11,
+      "name": "Telemax HD",
+      "category": "Nacionales",
+      "type": "hls",
+      "url": "https://stream-gtlc.telecentro.net.ar/hls/telemaxhls/main.m3u8",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Telemax_logo.png/800px-Telemax_logo.png",
+      "is_live": true
+    },
+    {
+      "id": "noticias247",
+      "number": 12,
+      "name": "24/7 Noticias",
+      "category": "Noticias",
+      "type": "hls",
+      "url": "https://panel.host-live.com:19360/cn247tv/cn247tv.m3u8",
+      "logo": "https://i.imgur.com/4hDCB1M.png",
+      "is_live": true
+    }
+  ]
+}
